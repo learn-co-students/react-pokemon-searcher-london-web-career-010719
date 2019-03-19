@@ -3,11 +3,21 @@ import PokemonCard from './PokemonCard'
 import { Card } from 'semantic-ui-react'
 
 class PokemonCollection extends React.Component {
+
+ 
+
+  listCards = () => {
+    return this.props.displayedPokemon.map(pokemon => <PokemonCard pokemon={pokemon} switchSide={this.switchSide}/>)
+  }
+
+  
   render() {
     return (
-      <Card.Group itemsPerRow={6}>
-        <h1>Hello From Pokemon Collection</h1>
+      <div>
+       <Card.Group itemsPerRow={6}>
+      {this.listCards()}
       </Card.Group>
+      </div>
     )
   }
 }
